@@ -1,0 +1,32 @@
+/* 移动端适配基础样式 */
+html {
+    font-size: 37.5px;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* 移动端点击高亮去除 */
+* {
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 移动端滚动优化 */
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+
+/* 移动端按钮样式优化 */
+button {
+    -webkit-appearance: none;
+    border: none;
+    background: none;
+    padding: 0;
+} 

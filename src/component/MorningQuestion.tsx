@@ -59,9 +59,6 @@ export const MorningQuestion = () => {
             alert('請選擇需要進行的照顧活動');
             return;
         }
-
-        // 如果所有校验都通过，可以在这里处理提交逻辑
-        console.log('表單數據：', formData);
     };
 
     return (

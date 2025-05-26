@@ -1,5 +1,5 @@
 import "amfe-flexible";
-import React, { useState } from "react";
+import { useState } from "react";
 import ReactDOM from "react-dom/client";
 import { MorningQuestion } from "./component/MorningQuestion";
 import "./styles/global.css";

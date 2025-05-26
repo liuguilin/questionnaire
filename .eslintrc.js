@@ -14,7 +14,7 @@ module.exports = {
     "plugin:prettier/recommended",
   ],
   globals: {},
-  plugins: ["react-hooks", "prettier", "react", "@typescript-eslint"],
+  plugins: ["react-hooks", "prettier", "react"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     ecmaFeatures: {

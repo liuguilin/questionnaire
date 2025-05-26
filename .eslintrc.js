@@ -14,7 +14,7 @@ module.exports = {
         "plugin:prettier/recommended",
     ],
     globals: {},
-    plugins: ["react-hooks", "prettier", "react"],
+    plugins: ["react-hooks", "prettier", "react", "@typescript-eslint"],
     parser: "@typescript-eslint/parser",
     parserOptions: {
         ecmaFeatures: {
@@ -52,6 +52,8 @@ module.exports = {
                 allowedNames: ["self"], // Allow `const self = this`; `[]` by default
             },
         ],
+        "no-unused-vars": "error",
+        "@typescript-eslint/no-unused-vars": "error",
         "@typescript-eslint/explicit-function-return-type": 0,
         "@typescript-eslint/ban-ts-comment": "off",
         "react/no-unknown-property": [

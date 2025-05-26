@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import "../styles/morningQuestion.css";
 
 interface FormData {
-    sleepQuality: number | '';
-    energyLevel: number | '';
+    sleepQuality: number | "";
+    energyLevel: number | "";
     needCare: boolean | null;
     careMembers: string[];
     careActivities: string[];
@@ -12,51 +12,51 @@ interface FormData {
 
 export const MorningQuestion = () => {
     const [formData, setFormData] = useState<FormData>({
-        sleepQuality: '',
-        energyLevel: '',
+        sleepQuality: "",
+        energyLevel: "",
         needCare: null,
         careMembers: [],
         careActivities: [],
-        otherActivity: ''
+        otherActivity: "",
     });
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value, type, checked } = e.target;
         setFormData({
             ...formData,
-            [name]: type === 'checkbox' ? checked : value
+            [name]: type === "checkbox" ? checked : value,
         });
     };
 
     const handleMultiSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        if (name === 'careMembers' || name === 'careActivities') {
+        if (name === "careMembers" || name === "careActivities") {
             setFormData({
                 ...formData,
-                [name]: [...formData[name], value]
+                [name]: [...formData[name], value],
             });
         }
     };
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        
+
         // 校验必填项
         console.log(formData);
         if (formData.sleepQuality === 0) {
-            alert('請填寫睡眠質量評分');
+            alert("請填寫睡眠質量評分");
             return;
         }
         if (formData.energyLevel === 0) {
-            alert('請填寫精力充沛程度評分');
+            alert("請填寫精力充沛程度評分");
             return;
         }
         if (formData.needCare && formData.careMembers.length === 0) {
-            alert('請選擇需要照顧的家庭成員');
+            alert("請選擇需要照顧的家庭成員");
             return;
         }
         if (formData.needCare && formData.careActivities.length === 0) {
-            alert('請選擇需要進行的照顧活動');
+            alert("請選擇需要進行的照顧活動");
             return;
         }
     };
@@ -66,7 +66,9 @@ export const MorningQuestion = () => {
             <h1 className="title">早問卷</h1>
             <form onSubmit={handleSubmit} className="form">
                 <div className="formGroup">
-                    <label>1. 您昨天晚上睡得好嗎？（請從0到10分進行打分）</label>
+                    <label className="formLabel">
+                        1. 您昨天晚上睡得好嗎？（請從0到10分進行打分）
+                    </label>
                     <input
                         type="number"
                         name="sleepQuality"
@@ -78,7 +80,10 @@ export const MorningQuestion = () => {
                     />
                 </div>
                 <div className="formGroup">
-                    <label>2. 今天起床後，您是否感到精力充沛？（請從0到10分進行打分）</label>
+                    <label className="formLabel">
+                        2.
+                        今天起床後，您是否感到精力充沛？（請從0到10分進行打分）
+                    </label>
                     <input
                         type="number"
                         name="energyLevel"
@@ -90,14 +95,18 @@ export const MorningQuestion = () => {
                     />
                 </div>
                 <div className="formGroup">
-                    <label>3. 您今天是否要為家庭成員提供照顧？</label>
+                    <label className="formLabel">
+                        3. 您今天是否要為家庭成員提供照顧？
+                    </label>
                     <div className="radioGroup">
                         <label className="radioLabel">
                             <input
                                 type="radio"
                                 name="needCare"
                                 checked={formData.needCare === true}
-                                onChange={() => setFormData({ ...formData, needCare: true })}
+                                onChange={() =>
+                                    setFormData({ ...formData, needCare: true })
+                                }
                             />
                             <span>需要</span>
                         </label>
@@ -106,18 +115,26 @@ export const MorningQuestion = () => {
                                 type="radio"
                                 name="needCare"
                                 checked={formData.needCare === false}
-                                onChange={() => setFormData({ ...formData, needCare: false })}
+                                onChange={() =>
+                                    setFormData({
+                                        ...formData,
+                                        needCare: false,
+                                    })
+                                }
                             />
                             <span>不需要</span>
                         </label>
                     </div>
                 </div>
                 <div className="formGroup">
-                    <label>4. 今天需要照顧的家庭成員為（可多選）</label>
+                    <label className="formLabel">
+                        4. 今天需要照顧的家庭成員為（可多選）
+                    </label>
                     <div>
-                        {['老人', '孩子', '伴侶', '其他親屬'].map((member) => (
+                        {["老人", "孩子", "伴侶", "其他親屬"].map((member) => (
                             <div className="checkboxItem" key={member}>
                                 <input
+                                    className="checkboxInput"
                                     type="checkbox"
                                     name="careMembers"
                                     value={member}
@@ -129,18 +146,22 @@ export const MorningQuestion = () => {
                     </div>
                 </div>
                 <div className="formGroup">
-                    <label>5. 作為家庭照顧者，您今天需要做哪些具體的事項或活動？（從以下事項中選擇，可多選）</label>
+                    <label className="formLabel">
+                        5.
+                        作為家庭照顧者，您今天需要做哪些具體的事項或活動？（從以下事項中選擇，可多選）
+                    </label>
                     <div>
                         {[
-                            '協助工具性事務',
-                            '協助日常基本生活',
-                            '情緒方面的支持',
-                            '監督和陪同',
-                            '直接或間接的經濟支持',
-                            '照顧小孩'
+                            "協助工具性事務",
+                            "協助日常基本生活",
+                            "情緒方面的支持",
+                            "監督和陪同",
+                            "直接或間接的經濟支持",
+                            "照顧小孩",
                         ].map((activity) => (
                             <div className="checkboxItem" key={activity}>
                                 <input
+                                    className="checkboxInput"
                                     type="checkbox"
                                     name="careActivities"
                                     value={activity}
@@ -157,15 +178,16 @@ export const MorningQuestion = () => {
                                 value={formData.otherActivity}
                                 onChange={handleInputChange}
                                 className="otherInput"
-                                placeholder="請輸入其他活動"
                             />
                         </div>
                     </div>
                 </div>
                 <div className="formGroup">
-                    <button type="submit" className="submitButton">提交</button>
+                    <button type="submit" className="submitButton">
+                        提交
+                    </button>
                 </div>
             </form>
         </div>
     );
-}; 
+};

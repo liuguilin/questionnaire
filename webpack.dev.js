@@ -52,7 +52,7 @@ module.exports = {
                                     require("postcss-pxtorem")({
                                         rootValue: 37.5,
                                         propList: ['*'],
-                                        unitPrecision: 5,
+                                        unitPrecision: 2,
                                         selectorBlackList: [],
                                         replace: true,
                                         mediaQuery: false,
@@ -87,7 +87,7 @@ module.exports = {
                                     require("postcss-pxtorem")({
                                         rootValue: 37.5,
                                         propList: ['*'],
-                                        unitPrecision: 5,
+                                        unitPrecision: 2,
                                         selectorBlackList: [],
                                         replace: true,
                                         mediaQuery: false,

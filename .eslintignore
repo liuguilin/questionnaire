@@ -1,6 +1,3 @@
 dist/
 lib/
 node_modules/
-packages/forest-editor-local/public
-coverage
-**/templates

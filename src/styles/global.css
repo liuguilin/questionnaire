@@ -1,6 +1,5 @@
 /* 移动端适配基础样式 */
 html {
-    font-size: 37.5px;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -22,11 +21,10 @@ body {
     background: transparent;
 }
 
-
 /* 移动端按钮样式优化 */
 button {
     -webkit-appearance: none;
     border: none;
     background: none;
     padding: 0;
-} 
+}

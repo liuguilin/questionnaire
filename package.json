@@ -41,6 +41,7 @@
         "autoprefixer": "^10.4.21",
         "css-loader": "^7.1.2",
         "eslint": "^8.57.1",
+        "eslint-config-prettier": "^10.1.5",
         "eslint-plugin-react": "^7.37.5",
         "eslint-plugin-react-hooks": "^4.6.2",
         "husky": "^9.1.7",
@@ -53,7 +54,7 @@
     },
     "lint-staged": {
         "*.{js,jsx,ts,tsx}": [
-            "eslint"
+            "eslint --fix"
         ]
     }
 }

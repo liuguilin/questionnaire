@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../styles/common.css";
+import { callNativeJsBridge } from "../utils";
 
 interface FormData {
   happiness: number | "";
@@ -45,40 +46,36 @@ export const EveningQuestion = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 校验必填项
-    console.log(formData);
-    if (formData.happiness === "") {
-      alert("請填寫幸福感評分");
-      return;
-    }
-    if (formData.stress === "") {
-      alert("請填寫壓力評分");
-      return;
-    }
-    if (formData.satisfaction === "") {
-      alert("請填寫照顧表現滿意度評分");
-      return;
-    }
-    if (formData.socialCount === "") {
-      alert("請填寫社交人數");
-      return;
-    }
-    if (formData.socialRelations.length === 0) {
-      alert("請選擇社交關係");
-      return;
-    }
-    if (formData.personalActivities.length === 0) {
-      alert("請選擇個人活動");
-      return;
-    }
-    if (formData.supportLevel === "") {
-      alert("請填寫獲得支持程度評分");
-      return;
-    }
-    if (formData.expectedSleepQuality === "") {
-      alert("請填寫預期睡眠質量評分");
-      return;
-    }
+    const submitData = [
+      {
+        qid: 1,
+        answer: formData.happiness === "" ? [] : [formData.happiness],
+      },
+      { qid: 2, answer: formData.stress === "" ? [] : [formData.stress] },
+      {
+        qid: 3,
+        answer: formData.satisfaction === "" ? [] : [formData.satisfaction],
+      },
+      {
+        qid: 4,
+        answer: formData.socialCount === "" ? [] : [formData.socialCount],
+      },
+      { qid: 5, answer: formData.socialRelations },
+      { qid: 6, answer: formData.personalActivities },
+      {
+        qid: 7,
+        answer: formData.supportLevel === "" ? [] : [formData.supportLevel],
+      },
+      {
+        qid: 8,
+        answer:
+          formData.expectedSleepQuality === ""
+            ? []
+            : [formData.expectedSleepQuality],
+      },
+    ];
+
+    callNativeJsBridge(submitData);
   };
 
   return (

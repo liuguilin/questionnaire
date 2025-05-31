@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import "../styles/common.css";
+import { callNativeJsBridge } from "../utils";
 
 interface FormData {
   sleepQuality: number | "";
   energyLevel: number | "";
-  needCare: boolean | null;
+  needCare: string | "";
   careMembers: string[];
   careActivities: string[];
   otherActivity: string;
@@ -14,7 +15,7 @@ export const MorningQuestion = () => {
   const [formData, setFormData] = useState<FormData>({
     sleepQuality: "",
     energyLevel: "",
-    needCare: null,
+    needCare: "",
     careMembers: [],
     careActivities: [],
     otherActivity: "",
@@ -41,24 +42,29 @@ export const MorningQuestion = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // 校验必填项
-    console.log(formData);
-    if (formData.sleepQuality === 0) {
-      alert("請填寫睡眠質量評分");
-      return;
-    }
-    if (formData.energyLevel === 0) {
-      alert("請填寫精力充沛程度評分");
-      return;
-    }
-    if (formData.needCare && formData.careMembers.length === 0) {
-      alert("請選擇需要照顧的家庭成員");
-      return;
-    }
-    if (formData.needCare && formData.careActivities.length === 0) {
-      alert("請選擇需要進行的照顧活動");
-      return;
-    }
+    const submitData = [
+      {
+        qid: 1,
+        answer: formData.sleepQuality === "" ? [] : [formData.sleepQuality],
+      },
+      {
+        qid: 2,
+        answer: formData.energyLevel === "" ? [] : [formData.energyLevel],
+      },
+      {
+        qid: 3,
+        answer: formData.needCare === "" ? [] : [formData.needCare],
+      },
+      { qid: 4, answer: formData.careMembers },
+      {
+        qid: 5,
+        answer: formData.otherActivity
+          ? [...formData.careActivities, formData.otherActivity]
+          : formData.careActivities,
+      },
+    ];
+
+    callNativeJsBridge(submitData);
   };
 
   return (
@@ -104,8 +110,13 @@ export const MorningQuestion = () => {
               <input
                 type="radio"
                 name="needCare"
-                checked={formData.needCare === true}
-                onChange={() => setFormData({ ...formData, needCare: true })}
+                checked={formData.needCare === "需要"}
+                onChange={() =>
+                  setFormData({
+                    ...formData,
+                    needCare: "需要",
+                  })
+                }
               />
               <span>需要</span>
             </label>
@@ -113,11 +124,11 @@ export const MorningQuestion = () => {
               <input
                 type="radio"
                 name="needCare"
-                checked={formData.needCare === false}
+                checked={formData.needCare === "不需要"}
                 onChange={() =>
                   setFormData({
                     ...formData,
-                    needCare: false,
+                    needCare: "不需要",
                   })
                 }
               />

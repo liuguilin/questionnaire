@@ -8,7 +8,9 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "webpack --config webpack.prod.js",
         "dev": "webpack-dev-server --config webpack.dev.js --open",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "lint": "eslint --cache --fix \"src/**/*.{ts,tsx}\"",
+        "lint:fix": "eslint --cache --fix \"src/**/*.{ts,tsx}\""
     },
     "dependencies": {
         "@babel/cli": "^7.24.1",
@@ -53,9 +55,8 @@
         "typescript": "^5.8.3"
     },
     "lint-staged": {
-        "*.{js,jsx,ts,tsx}": [
-            "eslint --fix",
-            "prettier --write"
+        "src/**/*.{ts,tsx}": [
+            "eslint --cache --fix"
         ]
     }
 }

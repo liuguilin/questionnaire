@@ -9,7 +9,7 @@
 .title {
     text-align: center;
     color: #333;
-    font-size: 30px;
+    font-size: 25px;
     margin-bottom: 11px;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .formLabel {
-    font-size: 20px;
+    font-size: 15px;
 }
 
 .input {
@@ -35,9 +35,10 @@
     padding: 1px;
     margin-top: 4px;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 15px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    height: 35px;
 }
 
 .radioGroup {
@@ -55,28 +56,29 @@
 
 .radioLabel {
     gap: -1px;
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .checkboxItem {
     margin-top: 7px;
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .otherInput {
     width: 100%;
     /* padding: 2px; */
     box-sizing: border-box;
-    font-size: 18px;
+    font-size: 13px;
     margin-top: 1px;
     border: 1px solid #ddd;
     border-radius: 4px;
+    height: 33px;
 }
 
 .otherLabel {
     margin-top: 7px;
     margin-bottom: -1px;
-    font-size: 18px;
+    font-size: 13px;
 }
 
 .submitButton {
@@ -87,12 +89,12 @@
     border-radius: 5px;
     cursor: pointer;
     box-sizing: border-box;
-    font-size: 20px;
+    font-size: 15px;
     padding: 7px 3px;
 }
 
 input[type="checkbox"],
 input[type="radio"] {
-    width: 18px;
-    height: 18px;
+    width: 15px;
+    height: 15px;
 }

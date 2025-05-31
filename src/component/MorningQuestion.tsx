@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../styles/morningQuestion.css";
+import "../styles/common.css";
 
 interface FormData {
   sleepQuality: number | "";
@@ -77,6 +77,7 @@ export const MorningQuestion = () => {
             value={formData.sleepQuality}
             onChange={handleInputChange}
             className="input"
+            placeholder="请输入0-10分"
           />
         </div>
         <div className="formGroup">
@@ -91,6 +92,7 @@ export const MorningQuestion = () => {
             value={formData.energyLevel}
             onChange={handleInputChange}
             className="input"
+            placeholder="请输入0-10分"
           />
         </div>
         <div className="formGroup">
@@ -175,6 +177,7 @@ export const MorningQuestion = () => {
                 value={formData.otherActivity}
                 onChange={handleInputChange}
                 className="otherInput"
+                placeholder="请输入"
               />
             </div>
           </div>

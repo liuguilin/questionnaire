@@ -23,6 +23,12 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: "module",
     allowImportExportEverywhere: true,
+    project: "./tsconfig.json",
+  },
+  settings: {
+    react: {
+      version: "detect",
+    },
   },
   rules: {
     "prettier/prettier": "error",
@@ -49,8 +55,8 @@ module.exports = {
     "@typescript-eslint/no-this-alias": [
       "warn",
       {
-        allowDestructuring: true, // Allow `const { props, state } = this`; false by default
-        allowedNames: ["self"], // Allow `const self = this`; `[]` by default
+        allowDestructuring: true,
+        allowedNames: ["self"],
       },
     ],
     "@typescript-eslint/no-unused-vars": "error",
@@ -69,4 +75,13 @@ module.exports = {
       },
     ],
   },
+  ignorePatterns: [
+    "node_modules/",
+    "dist/",
+    "build/",
+    "*.js",
+    "*.jsx",
+    "*.d.ts",
+    "webpack.*.js",
+  ],
 };

@@ -59,9 +59,5 @@
         "src/**/*.{ts,tsx}": [
             "eslint --cache --fix"
         ]
-    },
-    "prettier": {
-        "tabWidth": 4,
-        "singleQuote": false
     }
 }

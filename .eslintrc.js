@@ -65,23 +65,9 @@ module.exports = {
     "react/no-unknown-property": [
       "error",
       {
-        ignore: [
-          "exposure-key",
-          "click-key",
-          "report-data",
-          "report-exposure-data",
-          "report-click-data",
-        ],
+        ignore: ["exposure-key", "click-key", "report-data", "report-exposure-data", "report-click-data"],
       },
     ],
   },
-  ignorePatterns: [
-    "node_modules/",
-    "dist/",
-    "build/",
-    "*.js",
-    "*.jsx",
-    "*.d.ts",
-    "webpack.*.js",
-  ],
+  ignorePatterns: ["node_modules/", "dist/", "build/", "*.js", "*.jsx", "*.d.ts", "webpack.*.js"],
 };
